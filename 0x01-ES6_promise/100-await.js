@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable */
 
 import { uploadPhoto, createUser } from './utils';

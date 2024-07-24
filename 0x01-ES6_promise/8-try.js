@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable */
 
 export default function divideFunction(numerator, denominator) {
