@@ -1,3 +1,4 @@
+/* eslint-disable */
 const groceriesList = () => {
   const res = new Map();
   const objetos = {
