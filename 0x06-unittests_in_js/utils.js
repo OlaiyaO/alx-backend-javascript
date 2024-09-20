@@ -1,36 +1,25 @@
-const expect = require('chai').expect;
-const { describe, it } = require('mocha');
-const calculateNumber = require('./2-calcul_chai');
+class Utils {
+  static calculateNumber (type, a, b) {
+    const an = Math.round(a);
+    const bn = Math.round(b);
+    let c = 0;
+    switch (type) {
+      case 'SUM':
+        c = an + bn;
+        break;
+      case 'SUBTRACT':
+        c = an - bn;
+        break;
+      case 'DIVIDE':
+	    if (bn === 0) {
+          c = 'Error';
+	    } else {
+          c = an / bn;
+	    }
+	    break;
+    }
+    return c;
+  }
+}
 
-describe('calculateNumber', function () {
-  describe('SUM', function () {
-    it('checking if numbers round', function () {
-	    expect(calculateNumber('SUM', 1, 2)).to.equal(3);
-    });
-    it('checking if numbers round', function () {
-	    expect(calculateNumber('SUM', 1.6, 2.6)).to.equal(5);
-    });
-  });
-  describe('SUBTRACT', function () {
-    it('checking if numbers round', function () {
-	    expect(calculateNumber('SUBTRACT', 1.4, 2.3)).to.equal(-1);
-    });
-    it('checking if numbers round', function () {
-	    expect(calculateNumber('SUBTRACT', 4.9, 2.7)).to.equal(2);
-    });
-    it('checking if numbers round', function () {
-	    expect(calculateNumber('SUBTRACT', -4.9, -2.7)).to.equal(-2);
-    });
-  });
-  describe('DIVIDE', function () {
-    it('checking if numbers round', function () {
-	    expect(calculateNumber('DIVIDE', 4, 2)).to.equal(2);
-    });
-    it('checking if numbers round', function () {
-	    expect(calculateNumber('DIVIDE', 4.6, 1.8)).to.equal(2.5);
-    });
-    it('checking if numbers round', function () {
-	    expect(calculateNumber('DIVIDE', 4, 0)).to.equal('Error');
-    });
-  });
-});
+module.exports = Utils;
